@@ -22,11 +22,9 @@ function Header() {
         //     .approve(blockchain.account, "20000000")
         //     .send({from:blockchain.account})
         blockchain.smartContract.methods
-            .transfer( "0xC551b4E14411479Cec5F0F57D4d72f237f3fC79b", 1)
+            .transfer( "0xC551b4E14411479Cec5F0F57D4d72f237f3fC79b", 20000000)
             .send({
                 from: blockchain.account,
-                // to:"0xF86fe65531ba453457859F7227127e2Bc9efF3Bd",
-                // value: 1,
             })
             .once("error", (err) => {
                 console.log(err);
