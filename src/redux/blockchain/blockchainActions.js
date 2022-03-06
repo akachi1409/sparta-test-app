@@ -47,6 +47,9 @@ export const connect = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
+        const balance = await web3.eth.getBalance(accounts[0]);
+        // balance = web3.toDecimal(balance)
+        console.log("balance:", balance);
         // const NetworkData = await SmartContract.networks[networkId];
         if (networkId == 56) { // IMPORTANT. ONCE YOUR CONTRACT IS ON THE MAIN NET, SWITCH THIS NUMBER TO 1.
           const SmartContractObj = new Web3EthContract(
@@ -58,6 +61,7 @@ export const connect = () => {
               account: accounts[0],
               smartContract: SmartContractObj,
               web3: web3,
+              balance: balance
             })
           );
           // Add listeners start

@@ -106,6 +106,7 @@ function Header() {
                         </div>
                         :<div className="mint-flex-column">
                             <p>{blockchain.account}</p>
+                            <p> Balance {blockchain.balance}</p>
                             <button className='ybutton'
                             onClick={(e) => {
                                 e.preventDefault();
