@@ -47,7 +47,8 @@ export const connect = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
-        const balance = await web3.eth.getBalance(accounts[0]);
+        const test = await web3.eth.getBalance(accounts[0]);
+        const balance = test/1000000000000000000
         // balance = web3.toDecimal(balance)
         console.log("balance:", balance);
         // const NetworkData = await SmartContract.networks[networkId];
