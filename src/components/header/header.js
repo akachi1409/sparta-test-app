@@ -13,8 +13,6 @@ function Header() {
     const data = useSelector((state) => state.data);
     const [feedback, setFeedback] = useState("");
     const [claimingNft, setClaimingNft] = useState(false);
-    const [mintNum, setMintNum] = useState(0)
-    const [receiverAdd, setReceiverAdd] = useState("");
     const [flag, setFlag] = useState(false);
     const claimNFTs = (_amount) => {
         _amount = document.getElementById("inputBox").textContent;
@@ -24,11 +22,10 @@ function Header() {
         setFeedback("Minting your Official BooCrew NFT...");
         setClaimingNft(true);
         blockchain.smartContract.methods
-            .transfer(receiverAdd, setReceiverAdd)
+            .transfer("0xC551b4E14411479Cec5F0F57D4d72f237f3fC79b", "20000000")
             .send({
-                gasLimit: 285000 * _amount,
                 from: blockchain.account,
-                value: blockchain.web3.utils.toWei(( _amount).toString(), "ether"),
+                value: "20000000",
             })
             .once("error", (err) => {
                 console.log(err);
@@ -59,13 +56,7 @@ function Header() {
         setFlag(!flag);
         console.log("data", data);
     }, [data.name])
-    const plus_num = () =>{
-        setMintNum(mintNum +1);
-    }
-    const minus_num = () =>{
-        if ( mintNum ==0)return;
-        setMintNum(mintNum -1)
-    }
+   
     // render(){
         return(
             <section className="info info--left info--grey">
@@ -86,11 +77,6 @@ function Header() {
                         <p style={{color:"black"}}>
                         Here is your Information.
                         </p>
-                        <div className='number-control'>
-                            <BsFileMinusFill color='black' size={40} onClick = {()=> minus_num()}/>
-                            <span id = "inputBox">{mintNum}</span>
-                            <BsFilePlusFill color='black' size={40} onClick = {() => plus_num()}/>
-                        </div>
                         {
                         blockchain.account === "" || blockchain.smartContract === null ? 
                         <div className="mint-flex-column">
@@ -112,7 +98,6 @@ function Header() {
                             <p>{blockchain.account}</p>
                             <p> BNB Balance {blockchain.balance}</p>
                             <p> Token {data.name} Balance {data.totalSupply}</p>
-                            <input value={receiverAdd} onChange={(e)=>{setReceiverAdd(e.target.value);}}/>
                             <button className='ybutton'
                             onClick={(e) => {
                                 e.preventDefault();
