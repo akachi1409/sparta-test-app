@@ -25,13 +25,14 @@ export const fetchData = (account) => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     try {
+      let account = await store.getState().blockchain.account;
       let name = await store
         .getState()
         .blockchain.smartContract.methods.name()
         .call();
       let totalSupply = await store
         .getState()
-        .blockchain.smartContract.methods.totalSupply()
+        .blockchain.smartContract.methods.balanceOf(account)
         .call();
       let cost = await store
         .getState()

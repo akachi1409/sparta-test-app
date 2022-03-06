@@ -7,9 +7,9 @@ import Footer from "./components/footer/footer";
 function App() {
   return (
     <div >
-      <div className ="wrapper about ">
+      {/* <div className ="wrapper about ">
         <Navbar/>
-      </div>
+      </div> */}
         <section className="default-page default-page--about">
           <Header/>
           <Yellow/>
