@@ -2,6 +2,7 @@
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
 import SmartContract from "../../contracts/Doodlenauts.json";
+import NftContract from "../../contracts/NftContract.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -57,12 +58,18 @@ export const connect = () => {
             SmartContract,
             "0xF86fe65531ba453457859F7227127e2Bc9efF3Bd" // **IMPORTANT** PASTE CONTRACT ADDRESS HERE
           );
+          const NftContractObj = new Web3EthContract(
+            NftContract,
+            "0x8a0C542bA7bBBab7cF3551fFcc546CdC5362d2a1"
+          )
+          
           dispatch(
             connectSuccess({
               account: accounts[0],
               smartContract: SmartContractObj,
               web3: web3,
-              balance: balance
+              balance: balance,
+              NftContract: NftContractObj
             })
           );
           // Add listeners start
