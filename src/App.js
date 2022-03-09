@@ -12,7 +12,7 @@ function App() {
       </div> */}
         <section className="default-page default-page--about">
           <Header/>
-          <Yellow/>
+          {/* <Yellow/> */}
         </section>
         {/* <Footer/> */}
     </div>
