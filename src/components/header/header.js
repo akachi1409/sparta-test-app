@@ -61,7 +61,7 @@ function Header() {
   // render(){
   return (
     <section className="info info--left info--grey">
-      <div className="inner-container text-and-image">
+      {/* <div className="inner-container text-and-image">
         <div className="text">
           <h3> What are Cool Cats?</h3>
           <p>
@@ -80,7 +80,7 @@ function Header() {
             src="https://www.coolcatsnft.com/static/media/cool-cats.f7654eb6.png"
           />
         </div>
-      </div>
+      </div> */}
       <div className="inner-mint">
         <div className="mint-button-img">
           <img

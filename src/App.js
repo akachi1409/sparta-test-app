@@ -14,7 +14,7 @@ function App() {
           <Header/>
           <Yellow/>
         </section>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   );
 }
